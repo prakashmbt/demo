@@ -1,0 +1,76 @@
+select count(*) as count_today from tb_department;
+
+select max(id) from tb_department;
+
+select max(id) from tb_students;
+
+select avg(semester) from tb_semester_marks;
+
+select MIN(DISTINCT marks) from tb_semester_marks;
+
+select Max(DISTINCT marks) from tb_semester_marks;
+
+select SUM(semester) from tb_semester_marks;
+ 
+select MAX(semester) from tb_semester_marks;
+ 
+select Max(marks) from tb_semester_marks;
+
+select COUNT(id) AS Count, student_name
+
+from tb_students group by department_id having count(department_id) > 1;
+
+select count(id),gender from tb_students group by gender;
+
+select count(id),semester from tb_semester_marks group by semester; 
+
+select count(id),subjects from tb_semester group by subjects;
+
+select count(id), gender from tb_students group by gender having count(gender) > 45;
+
+select count(id) as student_count, max(marks) as high_scores from tb_semester_marks group by department_id;
+
+select count(id) as student_count,max(department_id) as high_scores, gender from tb_students group by gender ;
+
+select count(id) as student_count, semester, group_concat(student_id) from tb_semester_marks group by semester having semester > 3;
+
+select count(id) as students, gender from tb_students group by gender having gender = "Male";
+
+Having :
+select count(id) as student_count, department_id from tb_students group by department_id having department_id > 4;
+
+Where:
+
+select count(id) as student_count, department_id from tb_students where department_id > 4;
+
+select department_id, sum(marks) from tb_semester_marks group by department_id;
+
+OTHER TABLES :
+
+select count(CustomerID) as Customers, country from Customers group by Country having count(CustomerID) > 2 order by count(CustomerID);
+
+select CategoryID, sum(price) as price from Products group by CategoryId;
+
+select max(salary) from employees having job_id = "IT_PROG";
+
+select avg(salary),count(employee_id) from employees where department_id = 90;
+
+select max(salary), min(salary), sum(salary), avg(salary) from employees;
+
+select count(*) 'Employees' , job_id from employees group by job_id; 
+
+select MANAGER_ID from employees where min(salary);
+
+select max(salary) - min(salary) 'Difference' from employees;
+
+select department_id, sum(salary) from employees group by department_id; 
+
+select avg(salary), job_id from employees group by job_id having job_id not like "%IT_PROG";
+
+select sum(salary), max(salary), min(salary), avg(salary) , job_id, department_id from employees group by job_id having department_id = 90;
+
+select job_id, max(salary) from employees group by job_id having max(salary) >= 4000;
+
+select avg(salary), department_id from employees group by department_id having count(*) > 10;
+
+
